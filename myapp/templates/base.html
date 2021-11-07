@@ -9,16 +9,16 @@
 	</head>
 	<body>
 		<h1> Welcome {{ name }}, here are top desitations!</h1>
+		<a href="https://www.google.com">goooogle</a>
+		<br/>
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
-		<ul>
 			{% for m in messages %}
-			<li>{{ m }}</li>
+			<strong> {{ m }} </strong>
 			{% endfor %}
 		</ul>
 		{% endif %}
 		{% endwith %}
-		<a href="https://www.google.com">goooogle</a>
 		{% block content %}
 		{% endblock %}
 	</body>	
