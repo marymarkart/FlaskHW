@@ -1,5 +1,5 @@
 from myapp import myapp_obj
-from myapp.forms import LoginForm
+from myapp.forms import TopCities
 from flask import render_template, request, flash, redirect
 from myapp.models import City
 from myapp import db
@@ -10,7 +10,7 @@ def home():
 	title = "Top Cities"
 	name = "Mary"
 	top_cities = City.query.filter().order_by(City.city_rank.desc())
-	form = LoginForm()
+	form = TopCities()
 	if form.validate_on_submit():
 		flash(f'{form.city_name.data} was added!')
 		city_name = form.city_name.data
