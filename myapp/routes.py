@@ -3,12 +3,13 @@ from myapp.forms import LoginForm
 from flask import render_template, request, flash, redirect
 from myapp.models import City
 from myapp import db
+from sqlalchemy import desc
 
 @myapp_obj.route("/", methods=['GET','POST'])
 def home():
 	title = "Top Cities"
 	name = "Mary"
-	top_cities = City.query.all()
+	top_cities = City.query.filter().order_by(City.city_rank.desc())
 	form = LoginForm()
 	if form.validate_on_submit():
 		flash(f'{form.city_name.data} was added!')

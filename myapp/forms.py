@@ -4,6 +4,6 @@ from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
 	city_name =  StringField('City Name', validators=[DataRequired()])
-	city_rank = IntegerField('City Rank')	
+	city_rank = IntegerField('City Rank', validators=[DataRequired()])	
 	is_visited = BooleanField('Visited', default=False)
 	submit = SubmitField("Submit")
